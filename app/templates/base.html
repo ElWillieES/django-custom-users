@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Custom Users</title>
+</head>
+<body>
+
+<header>
+    {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p>You are not logged in.
+            <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Signup</a></p>
+    {% endif %}
+</header>
+
+<section>
+    {% block content %}
+    {% endblock %}
+</section>
+
+<footer>
+    <p>&copy; 2023 - Django Custom Users. All rights reserved.</p>
+</footer>
+</body>
+</html>
